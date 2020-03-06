@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Response</title>
+    <meta name="description" content="Login - Register Template">
+    <meta name="author" content="Lorenzo Angelino aka MrLolok">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F2F2F2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container-register">
+        <div id="title">
+            <i class="material-icons lock">lock</i> Register
+        </div>
+
+        <form role="form-group" method="GET" action={{ backToURL|safe }} id="responseform">
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">message</i>
+                </div>
+                <H4 style="color:black;">{{ message }}</H4>
+            </div>
+
+            <div class="clearfix"></div>
+            <br>
+            <input type="submit" value="{{ buttonCaption }}" />
+        </form>
+
+        
+    </div>
+</body>
+
+</html>
