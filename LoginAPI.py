@@ -1,16 +1,21 @@
 from flask import Flask, render_template, request
+import argparse
 
-protocol = "http"
-serverIp = "127.0.0.1"
-serverPort = "8123"
+parser = argparse.ArgumentParser(description="Server to provide backend for login application.")
+parser.add_argument("--ip", type=str, default="127.0.0.1", help="IP on which server will listen")
+parser.add_argument("--port", type=str, default="6000" ,help="POST on which server will listen")
+parser.add_argument("--protocol", type=str, default="HTTP", choices=["HTTP"], help="Protocol on which server will listen")
+
+args = parser.parse_args()
+print(args)
+protocol = args.protocol
+serverIp = args.ip
+serverPort = args.port
 baseAddress = protocol + "://" + serverIp + ":" + serverPort + "/"
 signupAddress = baseAddress + "signup"
 loginAddress = baseAddress + "login"
 
 userCollection = dict()
-userCollection["admin"] = "admin"
-
-
 app = Flask(__name__,static_url_path='/static')
 @app.route('/', methods=["POST", "GET"])
 def index():
