@@ -3,7 +3,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description="Server to provide backend for login application.")
 parser.add_argument("--ip", type=str, default="127.0.0.1", help="IP on which server will listen")
-parser.add_argument("--port", type=str, default="6000" ,help="POST on which server will listen")
+parser.add_argument("--port", type=str, default="5000" ,help="POST on which server will listen")
 parser.add_argument("--protocol", type=str, default="HTTP", choices=["HTTP"], help="Protocol on which server will listen")
 
 args = parser.parse_args()
@@ -16,6 +16,7 @@ signupAddress = baseAddress + "signup"
 loginAddress = baseAddress + "login"
 
 userCollection = dict()
+userCollection['admin'] = 'admin'
 app = Flask(__name__,static_url_path='/static')
 @app.route('/', methods=["POST", "GET"])
 def index():
@@ -48,14 +49,15 @@ def login():
 def signup():
   if request.method == "POST":
     userName = request.form['userName']
-    userPassword = request.form['userPassword']
+    userPassword = request.form['password']
 
     if userName in  userCollection.keys():
       msgStr = "OhOo sorry, {}, is already taken, Please try something else".format(userName)
       return render_template("response.html", message=msgStr, backToURL=signupAddress,  buttonCaption = "Sign up")
     else:
       userCollection[userName] = userPassword
-      return render_template("login.html", signupURL=signupAddress, loginURL=loginAddress)
+      msgStr = "Thanks {}, for the registration, You can login now".format(userName)
+      return render_template("response.html", message=msgStr, backToURL=loginAddress,  buttonCaption = "Login")
 
   elif request.method == "GET":
     return render_template("register.html", signupURL=signupAddress, loginURL=loginAddress)

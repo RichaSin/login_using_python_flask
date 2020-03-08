@@ -21,7 +21,7 @@
             <i class="material-icons lock">lock</i> Register
         </div>
 
-        <form role="form-group" method="POST" action={{ signupUrl|safe }} id="responseform">
+        <form role="form-group" method="POST" action={{ signupUrl|safe }}>
             <div class="input">
                 <div class="input-addon">
                     <i class="material-icons">email</i>
@@ -35,7 +35,7 @@
                 <div class="input-addon">
                     <i class="material-icons">face</i>
                 </div>
-                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
+                <input id="username" placeholder="Username" type="text" name="userName" required class="validate" autocomplete="off">
             </div>
 
             <div class="clearfix"></div>
@@ -44,7 +44,7 @@
                 <div class="input-addon">
                     <i class="material-icons">vpn_key</i>
                 </div>
-                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
+                <input id="password" placeholder="Password" type="password" name="password" required class="validate" autocomplete="off">
             </div>
 
             <div class="remember-me">
@@ -59,7 +59,7 @@
             <a href="#">Privacy Policy</a>
         </div>
 
-        <form role="form-group" method="GET" action={{ loginURL|safe }} id="loginform">
+        <form role="form-group" method="GET" action={{ loginURL|safe }}>
             <div class="register">
                 <span style="color: #657575">Do you already have an account?</span>
                 <input type="submit" value="Login" />
