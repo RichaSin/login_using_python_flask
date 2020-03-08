@@ -3,8 +3,9 @@ import argparse
 
 parser = argparse.ArgumentParser(description="Server to provide backend for login application.")
 parser.add_argument("--ip", type=str, default="127.0.0.1", help="IP on which server will listen")
-parser.add_argument("--port", type=str, default="5000" ,help="POST on which server will listen")
+parser.add_argument("--port", type=str, default="5000", help="POST on which server will listen")
 parser.add_argument("--protocol", type=str, default="HTTP", choices=["HTTP"], help="Protocol on which server will listen")
+parser.add_argument("--logLevel", type="str", default="INFO", choices=["INFO", "DEBUG"], help="log level")
 
 args = parser.parse_args()
 print(args)

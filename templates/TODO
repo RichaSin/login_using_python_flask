@@ -1,0 +1,19 @@
+#####################################
+             TODO
+#####################################
+0. TODO: Keep on adding TODOs and enhance product
+1. TODO: Adding support for email and mobile and registration
+    1.1 Validation of email and mobile number
+    1.2 Only single entry for email and mobile
+2. TODO: Adding support for storing records in Database
+    2.1 SQL
+    2.2 Mongo
+3. TODO: Logging improvement
+4. TODO: Adding support to read configuration
+    4.1 from json
+    4.2 from yml
+    4.3 from xml
+5. TODO: Forgot password
+    5.1 using email
+    5.2 using phone
+6. TODO: Support for login using mobile | email | username
