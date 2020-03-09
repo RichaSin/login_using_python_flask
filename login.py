@@ -2,9 +2,11 @@ from flask import render_template
 import inmemorydb as db
 import configuration
 from collections import namedtuple
+
 returnData = namedtuple('returnData', 'message, backToUrl, caption')
 
-def login(request: object) -> render_template:
+
+def login(request) -> render_template:
     login_name = request.form['userName']
     login_password = request.form['password']
     print("request : {}".format(request))
