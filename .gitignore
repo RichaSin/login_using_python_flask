@@ -1,3 +1,4 @@
 ##########################################
 #Ignoring pycharm related files
 /.idea
+*.pyc
